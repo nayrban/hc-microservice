@@ -2,4 +2,4 @@
 
 1 SpringBoot + Wildfly
 
-2 Discovert service + 2 servicios (autenticación y Product -CRUD-)
+2 Discovery  service (Eureka) + 2 servicios (autenticación y Product -CRUD-)
