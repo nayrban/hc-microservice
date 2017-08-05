@@ -1,4 +1,4 @@
-package com.hc.demo.microservices.products;
+package com.hc.demo.products;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

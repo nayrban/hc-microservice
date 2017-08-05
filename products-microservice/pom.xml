@@ -46,7 +46,7 @@
                 <configuration>
                     <layout>WAR</layout>
                     <executable>true</executable>
-                    <mainClass>com.hc.demo.discovery.EurekaServiceApplication</mainClass>
+                    <mainClass>com.hc.demo.products.ProductsApplication</mainClass>
                     <!-- Enable the line below to have remote debugging of your application
                         on port 5005 <jvmArguments>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</jvmArguments> -->
                 </configuration>
