@@ -8,7 +8,7 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <name>discovery</name>
+    <name>discovery-microservice</name>
     <artifactId>discovery-microservice</artifactId>
     <packaging>war</packaging>
 
@@ -21,10 +21,6 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-eureka-server</artifactId>
-            <!-- For running on WildFly-->
-            <exclusions>
-
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -54,7 +50,6 @@
     </repositories>
 
     <build>
-        <finalName>${project.name}-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

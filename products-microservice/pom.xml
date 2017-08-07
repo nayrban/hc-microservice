@@ -8,11 +8,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>products-service</artifactId>
+    <artifactId>products-microservice</artifactId>
 
     <packaging>war</packaging>
 
-    <name>products</name>
+    <name>products-microservice</name>
 
     <dependencies>
         <dependency>
@@ -38,7 +38,6 @@
     </dependencies>
 
     <build>
-        <finalName>${project.name}-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

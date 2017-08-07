@@ -10,7 +10,7 @@
     <name>Microservice Parent Project</name>
 
     <modules>
-        <module>discovery-mycroservice</module>
+        <module>discovery-microservice</module>
         <module>products-microservice</module>
     </modules>
 
@@ -40,6 +40,14 @@
         </dependency>
         <!-- End -->
 
+        <!-- For running on WildFly-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+
     </dependencies>
     <dependencyManagement>
         <dependencies>
@@ -55,6 +63,7 @@
     </dependencyManagement>
 
     <build>
+        <finalName>${project.name}-${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
