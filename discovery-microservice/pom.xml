@@ -54,13 +54,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <layout>WAR</layout>
-                    <executable>true</executable>
-                    <mainClass>com.hc.demo.discovery.EurekaServiceApplication</mainClass>
-                    <!-- Enable the line below to have remote debugging of your application
-                        on port 5005 <jvmArguments>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</jvmArguments> -->
-                </configuration>
                 <executions>
                     <execution>
                         <goals>
@@ -68,7 +61,39 @@
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <layout>WAR</layout>
+                    <executable>true</executable>
+                    <requiresUnpack>
+                        <dependency>
+                            <groupId>com.netflix.eureka</groupId>
+                            <artifactId>eureka-core</artifactId>
+                        </dependency>
+                        <dependency>
+                            <groupId>com.netflix.eureka</groupId>
+                            <artifactId>eureka-client</artifactId>
+                        </dependency>
+                    </requiresUnpack>
+                </configuration>
             </plugin>
+            <!-- <plugin>
+                 <groupId>org.springframework.boot</groupId>
+                 <artifactId>spring-boot-maven-plugin</artifactId>
+                 <configuration>
+                     <layout>WAR</layout>
+                     <executable>true</executable>
+                     <mainClass>com.hc.demo.discovery.EurekaServiceApplication</mainClass>
+
+                 </configuration>
+                 <executions>
+                     <execution>
+                         <goals>
+                             <goal>repackage</goal>
+                         </goals>
+                     </execution>
+                 </executions>
+             </plugin>--><!-- Enable the line below to have remote debugging of your application
+                        on port 5005 <jvmArguments>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</jvmArguments> -->
         </plugins>
     </build>
 </project>

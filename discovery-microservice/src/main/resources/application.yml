@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: discovery-microservice
+  jmx:
+    default-domain: discovery-microservice
+
+server:
+  port: 8080
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+  instance:
+    non-secure-port: 8080

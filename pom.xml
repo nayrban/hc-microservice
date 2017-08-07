@@ -25,6 +25,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <swagger.version>2.7.0</swagger.version>
     </properties>
     <dependencies>
         <!-- Part of WildFly build Provided for compilation but is not included -->
@@ -33,20 +34,26 @@
             <artifactId>spring-boot-starter-tomcat</artifactId>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-websocket</artifactId>
-            <scope>provided</scope>
-        </dependency>
+
         <!-- End -->
 
-        <!-- For running on WildFly-->
+        <!-- For running on WildFly
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <scope>provided</scope>
-        </dependency>
+        </dependency>-->
 
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
 
     </dependencies>
     <dependencyManagement>
@@ -63,7 +70,8 @@
     </dependencyManagement>
 
     <build>
-        <finalName>${project.name}-${project.version}</finalName>
+        <!-- -${project.version}-->
+        <finalName>${project.name}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -71,6 +79,22 @@
                 <configuration>
                 </configuration>
             </plugin>
+           <!-- <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <layout>WAR</layout>
+                    <executable>true</executable>
+                    <mainClass>com.hc.demo.products.ProductsApplication</mainClass>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>-->
         </plugins>
     </build>
 </project>
