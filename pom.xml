@@ -12,6 +12,7 @@
     <modules>
         <module>discovery-mycroservice</module>
         <module>products-microservice</module>
+        <module>security-microservice</module>
     </modules>
 
     <parent>
