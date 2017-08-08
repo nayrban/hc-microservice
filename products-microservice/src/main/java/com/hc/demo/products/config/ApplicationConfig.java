@@ -1,10 +1,9 @@
 package com.hc.demo.products.config;
 
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
 
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.context.annotation.Configuration;
+@ApplicationPath("resources")
+public class ApplicationConfig extends Application {
 
-@Configuration
-@EnableEurekaClient
-public class ApplicationConfig {
 }
