@@ -12,11 +12,19 @@
     <artifactId>discovery-microservice</artifactId>
     <packaging>war</packaging>
 
+    <properties>
+        <discovery.service.name>eureka</discovery.service.name>
+    </properties>
+
     <dependencies>
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-commons</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -31,25 +39,13 @@
     </dependencies>
 
     <repositories>
-        <repository>
-            <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
-            <url>https://repo.spring.io/snapshot</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
+
+
     </repositories>
 
     <build>
+        <finalName>${discovery.service.name}</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

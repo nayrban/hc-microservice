@@ -1,14 +1,17 @@
 spring:
   application:
-    name: discovery-microservice
+    name: eureka
   jmx:
-    default-domain: discovery-microservice
+    default-domain: eureka
 
 server:
   port: 8761
 eureka:
+  instance:
+    hostname: localhost
+    non-secure-port: 8761
   client:
     registerWithEureka: false
     fetchRegistry: false
-  instance:
-    non-secure-port: 8761
+    serviceUrl:
+          defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
