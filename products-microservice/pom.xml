@@ -33,14 +33,20 @@
             <artifactId>jaxrs-cdi</artifactId>
         </dependency>
 
-       <!-- <dependency>
+        <dependency>
             <groupId>org.wildfly.swarm</groupId>
-            <artifactId>topology-consul</artifactId>
-        </dependency>-->
+            <artifactId>ribbon</artifactId>
+        </dependency>
+        <!-- <dependency>
+             <groupId>org.wildfly.swarm</groupId>
+             <artifactId>topology-consul</artifactId>
+         </dependency>-->
 
     </dependencies>
 
     <build>
+        <finalName>${project.name}</finalName>
+
         <plugins>
 
             <plugin>
@@ -48,9 +54,10 @@
                 <artifactId>wildfly-swarm-plugin</artifactId>
                 <version>${version.wildfly-swarm}</version>
                 <configuration>
-                    <mainClass>org.javaee7.wildfly.samples.everest.uzer.Main</mainClass>
                     <properties>
-                        <swarm.context.path>${build.finalName}</swarm.context.path>
+                        <swarm.context.path>${project.build.finalName}</swarm.context.path>
+                        <swarm.bind.address>127.0.0.1</swarm.bind.address>
+                        <java.net.preferIPv4Stack>true</java.net.preferIPv4Stack>
                     </properties>
                 </configuration>
                 <executions>

@@ -3,7 +3,8 @@ package com.hc.demo.products;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.wildfly.swarm.Swarm;
 import org.wildfly.swarm.jaxrs.JAXRSArchive;
-//import org.wildfly.swarm.topology.TopologyArchive;
+//import org.wildfly.swarm.netflix.ribbon.RibbonArchive;
+import org.wildfly.swarm.topology.TopologyArchive;
 
 import java.net.URL;
 
@@ -22,12 +23,15 @@ public class ProductsApplication {
 		//archive.addAsWebInfResource(new ClassLoaderAsset("META-INF/persistence.xml", ProductsApplication.class.getClassLoader()), "classes/META-INF/persistence.xml");
 		archive.addAllDependencies();
 
+		/*archive.as(RibbonArchive.class).advertise(swarm.stageConfig()
+				.resolve("service.user.service-name")
+				.getValue());*/
 		// advertise service
-		/*archive.as(TopologyArchive.class).advertise(
+		archive.as(TopologyArchive.class).advertise(
 				swarm.stageConfig()
 						.resolve("service.user.service-name")
 						.getValue()
-		);*/
+		);
 
 		swarm.deploy(archive);
 	}

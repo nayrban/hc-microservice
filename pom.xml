@@ -92,14 +92,19 @@
             <artifactId>javaee-api</artifactId>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.wildfly.swarm</groupId>
+            <artifactId>topology-jgroups</artifactId>
+        </dependency>
     </dependencies>
 
     <modules>
         <module>products-microservice</module>
+        <module>discovery-microservice</module>
     </modules>
 
     <build>
-        <finalName>${project.name}</finalName>
         <pluginManagement>
             <plugins>
                 <plugin>
