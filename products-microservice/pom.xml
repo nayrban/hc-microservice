@@ -18,29 +18,21 @@
 
         <dependency>
             <groupId>org.wildfly.swarm</groupId>
-            <artifactId>jaxrs-jaxb</artifactId>
+            <artifactId>jaxrs</artifactId>
+            <version>${version.wildfly-swarm}</version>
         </dependency>
+
         <dependency>
             <groupId>org.wildfly.swarm</groupId>
-            <artifactId>jaxrs-jsonp</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>ejb</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.wildfly.swarm</groupId>
-            <artifactId>jaxrs-cdi</artifactId>
+            <artifactId>cdi</artifactId>
+            <version>${version.wildfly-swarm}</version>
         </dependency>
 
         <dependency>
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>ribbon</artifactId>
+            <version>${version.wildfly-swarm}</version>
         </dependency>
-        <!-- <dependency>
-             <groupId>org.wildfly.swarm</groupId>
-             <artifactId>topology-consul</artifactId>
-         </dependency>-->
 
     </dependencies>
 
@@ -67,14 +59,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
-                <configuration>
-                    <skip>false</skip>
-                </configuration>
             </plugin>
         </plugins>
     </build>

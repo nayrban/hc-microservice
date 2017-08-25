@@ -1,0 +1,50 @@
+<div>
+  <h1 class="title">Tabs</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <tabs>
+          <tab name="First Tab">
+            <h1>Hello</h1>
+            <drop-down title="DropDrown Example" icon="ti-bell">
+              <li><a>Notification 1</a></li>
+              <li><a>Notification 2</a></li>
+              <li><a>Notification 3</a></li>
+              <li><a>Notification 4</a></li>
+              <li><a>Another notification</a></li>
+            </drop-down>
+          </tab>
+          <tab name="GitHub Branches" :suffix="branches !== null ? '<span class=suffix>'+branches.length+'</span>' : ''">
+            <h3>Repos from NAS</h3>
+            <template v-for="branch in branches">
+              <input type="radio"
+                     :id="branch.name"
+                     :value="branch.name"
+                     name="branch.name"
+                     v-model="currentBranch">
+              <label :for="branch">{{ branch.name }}</label>
+            </template>
+            <table>
+              <tr>
+                <th>Reference</th>
+                <th>Author</th>
+                <th>Message</th>
+                <th>Date</th>
+              </tr>
+              <tr v-for="record in commits">
+                <td><a :href="record.html_url" target="_blank" class="commit">{{ record.sha.slice(0, 7) }}</a></td>
+                <td>{{record.commit.author.name}}</td>
+                <td>{{record.commit.message}}</td>
+                <td>{{record.commit.author.date}}</td>
+              </tr>
+            </table>
+          </tab>
+          <tab name="Third Tab">
+            <h3>Hola</h3>
+            <h1>{{products}}</h1>
+          </tab>
+        </tabs>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div>
+  <div class="card">
+    <div class="header">
+      <slot name="title"></slot>
+      <p class="category">
+        <slot name="subTitle"></slot>
+      </p>
+    </div>
+    <div class="content">
+      <div :id="chartId" class="ct-chart"></div>
+      <div class="footer">
+        <div class="chart-legend">
+          <slot name="legend"></slot>
+        </div>
+        <hr>
+        <div class="stats">
+          <slot name="footer"></slot>
+        </div>
+        <div class="pull-right">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

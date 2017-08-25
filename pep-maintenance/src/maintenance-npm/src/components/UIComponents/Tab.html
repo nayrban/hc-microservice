@@ -1,0 +1,8 @@
+<!-- Defines the panel to display, which is associated with the tab -->
+<section v-show="isActive"
+         :aria-hidden="! isActive"
+         class="tabs-component-panel"
+         :id="hash"
+         role="tabpanel">
+  <slot/>
+</section>

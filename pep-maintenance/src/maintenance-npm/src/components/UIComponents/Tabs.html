@@ -1,0 +1,49 @@
+<div class="tabs-component">
+  <!-- Create the tabs -->
+  <ul role="tablist" class="tabs-component-tabs">
+    <li v-for="(tab, index) in tabs"
+        :class="{ 'is-active': tab.isActive }"
+        class="tabs-component-tab"
+        role="presentation">
+
+      <a v-html="tab.header"
+         :aria-controls="tab.hash"
+         :aria-selected="tab.isActive"
+         @click.prevent="selectTab(tab.hash)"
+         :href="tab.hash"
+         class="tabs-component-tab-a"
+         role="tab"
+      ></a>
+
+    </li>
+  </ul>
+  <!-- Create the Panels -->
+  <div class="tabs-component-panels">
+    <slot/>
+  </div>
+
+  <div class="text-center controls">
+    <div class="row">
+      <input type="button" value="<<" :disabled="!prevEnabled" @click="prev"
+             class="btn btn-info btn-fill btn-wd controls-button"/>
+
+      <ul>
+        <li v-for="(tab, index) in tabs"
+            :class="{ 'is-active': tab.isActive }"
+            role="presentation">
+
+          <a v-html="index + 1"
+             :aria-controls="tab.hash"
+             :aria-selected="tab.isActive"
+             @click.prevent="selectTab(tab.hash)"
+             :href="tab.hash"
+             role="tab"></a>
+
+        </li>
+      </ul>
+
+      <input class="btn btn-info btn-fill btn-wd controls-button" type="button" value=">>"
+             @click="next" :disabled="!nextEnabled"/>
+    </div>
+  </div>
+</div>

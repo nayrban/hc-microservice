@@ -12,28 +12,21 @@ import java.net.URL;
 public class ProductsApplication {
 
 	public static void main(String[] args) throws Exception {
-		URL stageConfig = ProductsApplication.class.getClassLoader().getResource("application.yml");
 
-		Swarm swarm = new Swarm()
-				.withStageConfig(stageConfig);
-		swarm.start();
+		Swarm swarm = new Swarm();
 
 		JAXRSArchive archive = ShrinkWrap.create(JAXRSArchive.class);
 		archive.addPackage(ProductsApplication.class.getPackage());
-		//archive.addAsWebInfResource(new ClassLoaderAsset("META-INF/persistence.xml", ProductsApplication.class.getClassLoader()), "classes/META-INF/persistence.xml");
 		archive.addAllDependencies();
 
-		/*archive.as(RibbonArchive.class).advertise(swarm.stageConfig()
-				.resolve("service.user.service-name")
-				.getValue());*/
 		// advertise service
 		archive.as(TopologyArchive.class).advertise(
-				swarm.stageConfig()
+				swarm.configView()
 						.resolve("service.user.service-name")
 						.getValue()
 		);
 
-		swarm.deploy(archive);
+		swarm.start().deploy(archive);
 	}
 
 

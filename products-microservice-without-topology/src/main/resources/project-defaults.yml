@@ -1,0 +1,5 @@
+client:
+  products-service:
+    url: "http://127.0.0.1:8083"
+    api: "products-microservice/resources"
+    path: "products"
